@@ -1,6 +1,6 @@
 # Esti-Repairs_DM
 
-This project was for a car repair company. They have repair shops all over the United States and I was tasked to create a data warehouse from a transaction database. 
+This project was for a car repair company. They have repair shops all over the United States and I was tasked to create a data mart from the transaction database. 
 
 The Transaction database contained thireen tables with multiple columns in each table and thousands of rows as well.
 
