@@ -24,3 +24,5 @@ I created a stored procedure to:-
 -   load data into 'Fact' table.
 
 
+Note- The Store Procedure can be found on the first page named ' SP_Esti_DM '
+
