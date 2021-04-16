@@ -14,7 +14,7 @@ BEGIN
 
 SET NOCOUNT ON
 
-
+-- Creating 'Fact' and 'Dimension' schema names
 
 IF NOT EXISTS (
 SELECT  schema_name
@@ -33,6 +33,10 @@ WHERE   schema_name = 'Dim' )
 BEGIN
 EXEC sp_executesql N'CREATE SCHEMA Dim'
 END
+
+/* 
+Storing identified measures into a temp table by transforming some values and 'unpivoting' some columns 
+*/
 
 IF OBJECT_ID('tempdb..#JobCost_UnPivot') IS NOT NULL DROP TABLE #JobCost_UnPivot
 
@@ -152,7 +156,9 @@ UNPIVOT
 
 
 
-
+/* 
+Storing identified measures (fact) and discriptive attributes (dimensions) into a temp from the source tables and joing them with the temp table created above.
+*/
 
 IF OBJECT_ID('tempdb..#FullDenormalizedTable') IS NOT NULL DROP TABLE #FullDenormalizedTable
 
@@ -199,6 +205,7 @@ SELECT *
 FROM    #FullDenormalizedTable 
 */
 ------------------------------------------------------END OF VIEW #FullDenormalizedTable
+
 
 
 IF NOT EXISTS (SELECT * FROM SYSOBJECTS where name='Dim.Shop_Locations' and xtype='U') 
