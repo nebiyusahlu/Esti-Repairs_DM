@@ -1,13 +1,6 @@
 USE [EstimatesDM]
 GO
 
-/****** Object:  StoredProcedure [dbo].[usp_LoadEstimateDataDW]    Script Date: 4/7/2021 5:53:49 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
 CREATE PROC [dbo].[usp_LoadEstimateDataDW]
 AS 
 BEGIN 
